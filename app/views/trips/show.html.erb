@@ -1,10 +1,37 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @trip %>
+<h1>Trip Details</h1>
 
-<div>
-  <%= link_to "Edit this trip", edit_trip_path(@trip) %> |
-  <%= link_to "Back to trips", trips_path %>
+<p>
+  <strong>Schedule:</strong> <%= @trip.schedule %><br>
+  <strong>Origin:</strong> <%= @trip.origin %><br>
+  <strong>Destination:</strong> <%= @trip.destination %><br>
+  <strong>Passengers:</strong> <%= @trip.number_of_passengers %><br>
+  <strong>Total Fare:</strong> <%= @trip.total_fare %><br>
+  <strong>Bus:</strong> <%= @trip.bus.plate_number %><br>
+  <strong>Drivers:</strong> <%= @drivers.pluck(:name).join(', ') %>
+</p>
 
-  <%= button_to "Destroy this trip", @trip, method: :delete %>
-</div>
+<h2>Passengers</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contact Number</th>
+      <th>Email Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @passengers.each do |passenger| %>
+      <tr>
+        <td><%= passenger.name %></td>
+        <td><%= passenger.contact_number %></td>
+        <td><%= passenger.email_address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_trip_path(@trip) %> |
+<%= link_to 'Back', trips_path %>
+<%= button_to 'Destroy', @trip, method: :delete, data: { confirm: 'Are you sure?' } %>

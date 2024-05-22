@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @reservation %>
+<h1>Reservation Details</h1>
 
-<div>
-  <%= link_to "Edit this reservation", edit_reservation_path(@reservation) %> |
-  <%= link_to "Back to reservations", reservations_path %>
+<p>
+  <strong>Passenger:</strong> <%= @reservation.passenger.name %><br>
+  <strong>Trip:</strong> <%= @reservation.trip.schedule %> from <%= @reservation.trip.origin %> to <%= @reservation.trip.destination %>
+</p>
 
-  <%= button_to "Destroy this reservation", @reservation, method: :delete %>
-</div>
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>
+<%= button_to 'Destroy', @reservation, method: :delete, data: { confirm: 'Are you sure?' } %>
