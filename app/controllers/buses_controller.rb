@@ -8,6 +8,7 @@ class BusesController < ApplicationController
 
   # GET /buses/1 or /buses/1.json
   def show
+    @bus = Bus.find(params[:id])
   end
 
   # GET /buses/new
@@ -23,7 +24,7 @@ class BusesController < ApplicationController
   def create
     @bus = Bus.new(bus_params)
 
-    respond_to do |format|
+    respond_to do |format|  
       if @bus.save
         format.html { redirect_to bus_url(@bus), notice: "Bus was successfully created." }
         format.json { render :show, status: :created, location: @bus }

@@ -8,6 +8,7 @@ class PassengersController < ApplicationController
 
   # GET /passengers/1 or /passengers/1.json
   def show
+    @passenger = Passenger.find(params[:id])
   end
 
   # GET /passengers/new

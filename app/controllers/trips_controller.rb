@@ -8,6 +8,7 @@ class TripsController < ApplicationController
 
   # GET /trips/1 or /trips/1.json
   def show
+    @trip = Trip.find(params[:id])
   end
 
   # GET /trips/new
