@@ -16,7 +16,7 @@
       <tr>
         <td><%= driver.name %></td>
         <td><%= driver.contact_number %></td>
-        <td><%= driver.bus.plate_number %></td>
+        <td><%= driver.bus.plate_number if driver.bus %></td>
         <td>
           <%= link_to 'Show', driver %> |
           <%= link_to 'Edit', edit_driver_path(driver) %> |
