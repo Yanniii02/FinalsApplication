@@ -35,6 +35,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_22_103414) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rails", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "Reservation"
+    t.bigint "passenger_id", null: false
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["passenger_id"], name: "index_rails_on_passenger_id"
+    t.index ["trip_id"], name: "index_rails_on_trip_id"
+  end
+
   create_table "reservations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "passenger_id", null: false
     t.bigint "trip_id", null: false
@@ -58,6 +68,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_22_103414) do
   end
 
   add_foreign_key "drivers", "buses"
+  add_foreign_key "rails", "passengers"
+  add_foreign_key "rails", "trips"
   add_foreign_key "reservations", "passengers"
   add_foreign_key "reservations", "trips"
   add_foreign_key "trips", "buses"

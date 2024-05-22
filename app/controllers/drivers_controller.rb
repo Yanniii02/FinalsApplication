@@ -8,6 +8,7 @@ class DriversController < ApplicationController
 
   # GET /drivers/1 or /drivers/1.json
   def show
+    @driver = Driver.find(params[:id])
   end
 
   # GET /drivers/new
