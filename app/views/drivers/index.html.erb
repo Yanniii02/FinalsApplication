@@ -2,13 +2,29 @@
 
 <h1>Drivers</h1>
 
-<div id="drivers">
-  <% @drivers.each do |driver| %>
-    <%= render driver %>
-    <p>
-      <%= link_to "Show this driver", driver %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contact Number</th>
+      <th>Bus</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @drivers.each do |driver| %>
+      <tr>
+        <td><%= driver.name %></td>
+        <td><%= driver.contact_number %></td>
+        <td><%= driver.bus.plate_number %></td>
+        <td>
+          <%= link_to 'Show', driver %> |
+          <%= link_to 'Edit', edit_driver_path(driver) %> |
+          <%= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New driver", new_driver_path %>
+<%= link_to 'New Driver', new_driver_path %>

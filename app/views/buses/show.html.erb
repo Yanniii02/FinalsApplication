@@ -8,3 +8,42 @@
 
   <%= button_to "Destroy this bus", @bus, method: :delete %>
 </div>
+<p style="color: green"><%= notice %></p>
+
+<h1>Bus Details</h1>
+
+<p>
+  <strong>Body Number:</strong> <%= @bus.body_number %><br>
+  <strong>Plate Number:</strong> <%= @bus.plate_number %>
+</p>
+
+<h2>Drivers</h2>
+<ul>
+  <% @bus.drivers.each do |driver| %>
+    <li><%= driver.name %></li>
+  <% end %>
+</ul>
+
+<h2>Trips</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Schedule</th>
+      <th>Origin</th>
+      <th>Destination</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bus.trips.each do |trip| %>
+      <tr>
+        <td><%= trip.schedule %></td>
+        <td><%= trip.origin %></td>
+        <td><%= trip.destination %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_bus_path(@bus) %> |
+<%= link_to 'Back', buses_path %>
+<%= button_to 'Destroy', @bus, method: :delete, data: { confirm: 'Are you sure?' } %>
