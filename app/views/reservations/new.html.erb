@@ -1,9 +1,17 @@
-<h1>New reservation</h1>
+<h1>New Reservation</h1>
 
-<%= render "form", reservation: @reservation %>
+<%= form_with(model: @reservation) do |form| %>
+  <div class="field">
+    <%= form.label :passenger_id, 'Passenger' %>
+    <%= form.collection_select :passenger_id, Passenger.all, :id, :name, prompt: "Select Passenger" %>
+  </div>
 
-<br>
+  <div class="field">
+    <%= form.label :trip_id, 'Trip' %>
+    <%= form.collection_select :trip_id, Trip.all, :id, :schedule, prompt: "Select Trip" %>
+  </div>
 
-<div>
-  <%= link_to "Back to reservations", reservations_path %>
-</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
