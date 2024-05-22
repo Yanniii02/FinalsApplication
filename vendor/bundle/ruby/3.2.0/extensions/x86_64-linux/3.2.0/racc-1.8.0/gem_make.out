@@ -1,0 +1,18 @@
+current directory: /home/simon/FinalsApplication/vendor/bundle/ruby/3.2.0/gems/racc-1.8.0/ext/racc/cparse
+/home/simon/.rvm/rubies/ruby-3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/simon/FinalsApplication/vendor/bundle/ruby/3.2.0/gems/racc-1.8.0/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240522-39544-kiei3y sitelibdir\=./.gem.20240522-39544-kiei3y clean
+
+current directory: /home/simon/FinalsApplication/vendor/bundle/ruby/3.2.0/gems/racc-1.8.0/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240522-39544-kiei3y sitelibdir\=./.gem.20240522-39544-kiei3y
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /home/simon/FinalsApplication/vendor/bundle/ruby/3.2.0/gems/racc-1.8.0/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240522-39544-kiei3y sitelibdir\=./.gem.20240522-39544-kiei3y install
+/usr/bin/install -m 0755 cparse.so ./.gem.20240522-39544-kiei3y/racc
+
+current directory: /home/simon/FinalsApplication/vendor/bundle/ruby/3.2.0/gems/racc-1.8.0/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20240522-39544-kiei3y sitelibdir\=./.gem.20240522-39544-kiei3y clean
