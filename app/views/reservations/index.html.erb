@@ -2,13 +2,27 @@
 
 <h1>Reservations</h1>
 
-<div id="reservations">
-  <% @reservations.each do |reservation| %>
-    <%= render reservation %>
-    <p>
-      <%= link_to "Show this reservation", reservation %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Passenger</th>
+      <th>Trip</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.passenger.name %></td>
+        <td><%= reservation.trip.schedule %> from <%= reservation.trip.origin %> to <%= reservation.trip.destination %></td>
+        <td>
+          <%= link_to 'Show', reservation %> |
+          <%= link_to 'Edit', edit_reservation_path(reservation) %> |
+          <%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New reservation", new_reservation_path %>
+<%= link_to 'New Reservation', new_reservation_path %>
