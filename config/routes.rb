@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :rails
   resources :passengers
   resources :trips
-  resources :drivers
+  resources :drivers, only: [:new, :create, :show]
   resources :buses
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
